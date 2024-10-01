@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar e Baixar Informações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="prototipo 2.png" alt="Logo" class="logo" style="width: 80px; height: auto;">
+            <nav>
+                <ul>
+                    <li><a href="contato.html">Investir</a></li>
+                    <li><a href="home.html">Sobre o Site</a></li>
+                    <li><a href="download.html">Baixar Informações</a></li>
+                    <li><a href="principal.html">Perfil</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-content">
+            <h2>Adicionar Projetos e Imagens</h2>
+            <form id="upload-form">
+                <label for="project-name">Nome do Projeto:</label>
+                <input type="text" id="project-name" name="project-name" required>
+
+                <label for="project-description">Descrição do Projeto:</label>
+                <textarea id="project-description" name="project-description" rows="4" required></textarea>
+
+                <label for="project-image">Imagem do Projeto:</label>
+                <input type="file" id="project-image" name="project-image" accept="image/*" required>
+
+                <button type="submit">Adicionar e Gerar Arquivo</button>
+            </form>
+
+            <a id="download-link" href="#" style="display: none;">Baixar Arquivo</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            const projectName = formData.get('project-name');
+            const projectDescription = formData.get('project-description');
+            const projectImage = formData.get('project-image');
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const projectData = {
+                    name: projectName,
+                    description: projectDescription,
+                    image: e.target.result // URL da imagem
+                };
+
+                let projects = JSON.parse(localStorage.getItem('projects')) || [];
+                projects.push(projectData);
+                localStorage.setItem('projects', JSON.stringify(projects));
+
+                const jsonBlob = new Blob([JSON.stringify(projectData, null, 2)], { type: 'application/json' });
+                const jsonUrl = URL.createObjectURL(jsonBlob);
+                
+                const downloadLink = document.getElementById('download-link');
+                downloadLink.href = jsonUrl;
+                downloadLink.download = 'projeto.json';
+                downloadLink.style.display = 'block';
+                downloadLink.textContent = 'Baixar Arquivo JSON';
+            };
+            reader.readAsDataURL(projectImage); // Lê a imagem como URL
+        });
+    </script>
+</body>
+</html>

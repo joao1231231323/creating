@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating</title>
+    <link rel="stylesheet" href="conta.css">
+    <style>
+        /* Estilos do cabeçalho */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 20px;
+        }
+        .header-container h1 {
+            color: limegreen;
+            font-size: 24px;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Estilos do container de compra */
+        .purchase-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            color: white;
+        }
+        .offer-details {
+            text-align: center;
+            max-width: 600px;
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        .offer-details h2, .offer-details h3 {
+            color: limegreen;
+        }
+        .offer-details p {
+            margin: 10px 0;
+        }
+        .offer-info p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Barra de progresso */
+        .progress-bar {
+            background-color: #333;
+            border-radius: 20px;
+            height: 20px;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .progress {
+            background-color: limegreen;
+            height: 100%;
+            border-radius: 20px;
+            width: 0%;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Botões */
+        .cta, .contact-btn {
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: limegreen;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover, .contact-btn:hover {
+            background-color: darkgreen;
+            color: white;
+        }
+
+        /* Link para download */
+        .download-link {
+            display: block;
+            color: limegreen;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="prototipo 2.png" alt="Logo" class="logo" style="width: 80px; height: auto;">
+            <nav>
+                <ul>
+                    <li><a href="principal.html">Perfil</a></li>
+                    <li><a href="home.html">Sobre o Site</a></li>
+                    <li><a href="contato.html">Investir</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="purchase-container">
+        <div class="offer-details">
+            <img src="como-escolher-o-melhor-fornecedor-de-TI-para-empresa-300x200.webp" alt="STOA Seguros Logo">
+            <h2>creating your dreams</h2>
+            <p>Creating esta pratocinando os Sites</p>
+            <h3>Total Investido</h3>
+            <h2>R$ 0,1</h2>
+
+            <!-- Barra de Progresso -->
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+
+            <ul>
+                <li id="percentInvestido">0,1% Investido</li>
+                <li>100% meta </li>
+            </ul>
+            <a href="#" class="download-link">Informações essenciais da oferta</a>
+
+            <div class="offer-info">
+                <p>Valor objetivo: R$ 1.600.000</p>
+                <p>Participação societária: 1%</p>
+                <p>Total investido: R$ 0,1</p>
+                <p>Investidores: 1</p>
+                <p>Investimento mínimo: R$ 0,1</p>
+                <p>Disponível: 99.9%</p>
+            </div>
+ 
+            <!-- Botões de ação -->
+            <button class="cta" onclick="simulateInvestment()">Investir</button>
+            <button class="contact-btn">Falar com a Empresa</button>
+        </div>
+    </div>
+     <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para animação da barra de progresso -->
+    <script>
+        // Função para atualizar a barra de progresso dinamicamente
+        function updateProgressBar(percentage) {
+            const progressBar = document.getElementById("progressBar");
+            const percentInvestido = document.getElementById("percentInvestido");
+
+            // Limita o valor entre 0 e 100
+            percentage = Math.min(Math.max(percentage, 0), 100);
+
+            // Atualiza a largura da barra de progresso e o texto
+            progressBar.style.width = percentage + '%';
+            percentInvestido.textContent = percentage + '% Investido';
+        }
+
+        // Função para simular um investimento crescente
+        function simulateInvestment() {
+            let currentPercentage = 0;
+            const targetPercentage = 100; // Meta para o investimento simulado
+
+            const interval = setInterval(() => {
+                if (currentPercentage >= targetPercentage) {
+                    clearInterval(interval); // Para a animação ao atingir a meta
+                } else {
+                    currentPercentage += 1; // Incrementa a porcentagem
+                    updateProgressBar(currentPercentage); // Atualiza a barra
+                }
+            }, 100); // Velocidade do incremento (100 ms)
+        }
+
+        // Atualiza a barra de progresso ao carregar a página
+        updateProgressBar(0);
+    </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="prototipo 2.png" alt="Logo" class="logo" style="width: 80px; height: auto;">
+            <nav>
+                <ul>
+
+                    <li><a href="register.html">Criar Conta</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-content">
+            <h2>Criar Conta</h2>
+            <form id="register-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+            <a href="login.html" class="btn">Já tem uma conta? Faça login</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Obtém o nome e o email do usuário
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Armazena o nome e o email no localStorage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            
+            // Redireciona para a página principal
+            window.location.href = 'principal.html';
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Logo adicionada -->
+            <img src="prototipo 2.png" alt="Logo" class="logo" style="width: 80px; height: auto;">
+            <nav>
+                <ul>
+                    <li><a href="contato.html">Investir</a></li>
+                    <li><a href="home.html">Sobre o Site</a></li>
+                    <li><a href="dowload.html">Baixar Informações</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <style>
+                    body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-container {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .profile-image {
+            width: 150px; /* Tamanho da imagem */
+            height: 150px; /* Tamanho da imagem */
+            border-radius: 50%; /* Faz a imagem ficar redonda */
+            object-fit: cover; /* Mantém a proporção da imagem */
+            border: 2px solid #00ff00; /* Borda verde */
+            cursor: pointer; /* Cursor de clique */
+        }
+                    button {
+            background-color: #00ff00;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+              button:hover {
+            background-color: #00cc00; /* Efeito ao passar o mouse */
+        }
+            .profile-image {
+                width: 150px; /* Altere o tamanho conforme necessário */
+                height: 150px; /* Altere o tamanho conforme necessário */
+                border-radius: 50%; /* Faz a imagem ficar redonda */
+                object-fit: cover; /* Mantém a proporção da imagem */
+            }
+        </style>
+        <div class="main-content">
+            <h2>Bem-vindo, <span id="user-name">[Nome do Usuário]</span>!</h2>
+            <div class="user-profile">
+                <div class="profile-info">
+                    <img src="1.png" alt="Avatar do Usuário" class="profile-image">
+                    <h3 id="user-name-display">[Nome do Usuário]</h3>
+                    <p>Email: <span id="user-email">[email@example.com]</span></p>
+                    <p>Mais detalhes sobre o usuário podem ser exibidos aqui.</p>
+                </div>
+                <div class="user-actions">
+                    <a href="settings.html" class="btn">Configurações</a>
+                    <a href="contato.html" class="btn">Entrar em Contato</a>
+                </div>
+            </div>
+            
+            <!-- Novos Quadrados com Imagens -->
+            <section class="image-gallery" id="project-gallery">
+                <!-- Os projetos serão carregados aqui -->
+            </section>
+            
+            <a href="dowload.html" class="btn">Adicionar e Baixar Informações</a>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Exibe o nome e o email do usuário armazenado
+        const userName = localStorage.getItem('userName');
+        const userEmail = localStorage.getItem('userEmail');
+        if (userName && userEmail) {
+            document.getElementById('user-name').textContent = userName;
+            document.getElementById('user-name-display').textContent = userName;
+            document.getElementById('user-email').textContent = userEmail;
+        }
+
+        // Carrega e exibe os projetos armazenados
+        function loadProjects() {
+            const projectGallery = document.getElementById('project-gallery');
+            const projects = JSON.parse(localStorage.getItem('projects')) || [];
+            
+            projectGallery.innerHTML = '';
+            projects.forEach((project, index) => {
+                const projectHTML = `
+                    <div class="image-box">
+                        <a href="#">
+                            <img src="${project.image}" alt="${project.name}">
+                            <div class="project-title">${project.name}</div>
+                            <p>${project.description}</p>
+                        </a>
+                        <button class="btn delete-btn" data-index="${index}">Deletar</button>
+                    </div>
+                `;
+                projectGallery.innerHTML += projectHTML;
+            });
+        }
+
+        // Remove um projeto da lista
+        function removeProject(index) {
+            let projects = JSON.parse(localStorage.getItem('projects')) || [];
+            projects.splice(index, 1);
+            localStorage.setItem('projects', JSON.stringify(projects));
+            loadProjects();
+        }
+
+        // Adiciona o evento de click aos botões de deletar
+        document.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('delete-btn')) {
+                const index = event.target.getAttribute('data-index');
+                removeProject(index);
+            }
+        });
+
+        // Chama a função ao carregar a página
+        document.addEventListener('DOMContentLoaded', loadProjects);
+        const imageInput = document.getElementById('imageInput');
+        const profileImage = document.getElementById('profileImage');
+
+        // Ação ao clicar na imagem
+        profileImage.addEventListener('click', function() {
+            imageInput.click(); // Aciona o input de arquivo
+        });
+
+  
+    </script>
+     <script>
+        // Manipulação da imagem de perfil
+        const Input = document.getElementById('iInput');
+        const Image = document.getElementById('Image');
+
+        // Ação ao clicar na imagem
+        profileImage.addEventListener('click', function() {
+            Input.click(); // Aciona o input de arquivo
+        });
+
+        // Ação ao selecionar uma nova imagem
+        Input.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    Image.src = e.target.result; // Atualiza a imagem
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,420 @@
+/* Configurações básicas de estilo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #ffffff); /* Gradiente sutil preto para verde escuro */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+}
+
+
+header {
+    background: rgba(0, 0, 0, 0.8); /* Fundo levemente transparente escuro */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000; /* Borda preta */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-box a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-box p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro e mais opaco */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.image-box .project-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro e opaco */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: rgb(0, 255, 0); /* Verde vibrante para o título RGB */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(0, 255, 0); /* Links verdes vibrantes RGB */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: rgb(0, 204, 0); /* Verde um pouco mais escuro para hover RGB */
+}
+
+main {
+    margin-top: 80px; /* Para compensar o cabeçalho fixo */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.main-content {
+    background: rgba(0, 0, 0, 0.8); /* Fundo preto e levemente opaco */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: rgb(0, 255, 0); /* Verde vibrante RGB */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: rgb(0, 255, 0); /* Verde vibrante RGB */
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 255, 0); /* Borda verde vibrante RGB */
+    background-color: #000; /* Fundo preto */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+}
+
+button {
+    padding: 15px 25px;
+    background-color: rgb(0, 255, 0); /* Verde vibrante RGB */
+    color: #000; /* Texto preto */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(0, 204, 0); /* Verde mais escuro para hover RGB */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+a.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    background-color: rgb(0, 255, 0); /* Verde vibrante RGB */
+    color: #000; /* Texto preto */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a.btn:hover {
+    background-color: rgb(0, 204, 0); /* Verde mais escuro para hover RGB */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+footer {
+    background: #000; /* Fundo preto */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    grid-template-rows: repeat(2, 1fr); /* 2 linhas */
+    gap: 20px; /* Espaço entre os quadrados */
+    margin-top: 20px;
+}
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-box a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-box p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro e mais opaco */
+    color: rgb(0, 255, 0); /* Texto verde vibrante RGB */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+/* Adicione isto ao seu CSS */
+
+.download-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.download-section .btn {
+    background-color: #00ff00; /* Verde vibrante */
+    color: #000; /* Texto preto */
+    padding: 15px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-section .btn:hover {
+    background-color: #00cc00; /* Verde mais escuro para hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+/* Adicione isto ao seu CSS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Fundo preto e levemente opaco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    color: #00ff00; /* Verde vibrante */
+    font-weight: bold;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #00ff00; /* Borda verde vibrante */
+    background-color: #000; /* Fundo preto */
+    color: #00ff00; /* Texto verde vibrante */
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #00ff00; /* Verde vibrante */
+    color: #000; /* Texto preto */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #00cc00; /* Verde mais escuro para hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Gradiente de fundo aprimorado */
+body {
+    background: linear-gradient(135deg, #f0f5f9 0%, #9dadc7 50%, #94a7af 100%);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Adicionando formas geométricas com mais detalhes */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para não interferir na navegação */
+    z-index: -1; /* Mantém o conteúdo na frente */
+}
+
+.shape {
+    position: absolute;
+    background-color: rgba(0, 255, 0, 0.12); /* Verde vibrante semi-transparente */
+    border-radius: 50%;
+    filter: blur(20px); /* Desfoca mais para suavidade */
+    animation: float 12s infinite ease-in-out; /* Animação com movimento suave */
+    opacity: 0.8; /* Transparência para dar profundidade */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-30px) translateX(10px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.shape-1 {
+    width: 350px;
+    height: 350px;
+    top: 5%;
+    left: 15%;
+    background-color: rgba(255, 0, 150, 0.1); /* Forma rosa clara */
+}
+
+.shape-2 {
+    width: 180px;
+    height: 180px;
+    bottom: 10%;
+    right: 15%;
+    background-color: rgba(0, 255, 255, 0.2); /* Forma ciano clara */
+}
+
+.shape-3 {
+    width: 280px;
+    height: 280px;
+    top: 30%;
+    left: 60%;
+    background-color: rgba(0, 255, 0, 0.15); /* Forma verde */
+}
+
+.shape-4 {
+    width: 120px;
+    height: 120px;
+    bottom: 5%;
+    left: 10%;
+    background-color: rgba(255, 255, 0, 0.12); /* Forma amarela */
+}
+
+/* Estilizando o container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.box {
+    background-color: rgba(51, 51, 51, 0.85); /* Fundo semi-transparente para o conteúdo */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra aprimorada */
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Tipografia e espaçamento melhorados */
+h1 {
+    color: #00FF00; /* Verde vibrante */
+    font-size: 2.8em; /* Tamanho maior para impacto */
+    letter-spacing: 2px; /* Espaçamento entre letras para melhorar a leitura */
+    margin-bottom: 20px;
+}
+
+p {
+    color: #ffffff;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Link estilizado */
+a {
+    color: #00FF00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #00cc00;
+}
